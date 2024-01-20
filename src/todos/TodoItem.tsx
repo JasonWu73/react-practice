@@ -1,4 +1,4 @@
-import type { Todo } from './AddTodo.tsx'
+import type { Todo } from './todos-signals.ts'
 
 type TodoItemProps = {
   item: Todo

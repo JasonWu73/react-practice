@@ -1,12 +1,7 @@
 import React from 'react'
 
-export type Todo = {
-  id: number
-  text: string
-}
-
 type AddTodoProps = {
-  onAdd: (todo: Todo) => void
+  onAdd: (text: string) => void
 }
 
 export function AddTodo({ onAdd }: AddTodoProps) {
@@ -21,7 +16,7 @@ export function AddTodo({ onAdd }: AddTodoProps) {
 
     inputRef.current!.value = ''
 
-    onAdd({ id: Date.now(), text })
+    onAdd(text)
   }
 
   return (
