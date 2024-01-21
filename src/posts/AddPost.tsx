@@ -6,7 +6,7 @@ type AddPostProps = {
 export function AddPost({ onChangeText, onChangeAuthor }: AddPostProps) {
   return (
     <form
-      className="mx-auto mt-8 p-4 space-y-4 max-w-md border border-amber-500 rounded shadow shadow-amber-500"
+      className="space-y-4"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="text" className="w-24 font-semibold">Text</label>

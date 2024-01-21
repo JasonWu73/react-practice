@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Model } from '@/shared/components/ui/Model'
 import { Post } from '@/posts/Post'
 import { AddPost } from '@/posts/AddPost'
 
@@ -17,7 +18,9 @@ export function PostList() {
 
   return (
     <>
-      <AddPost onChangeText={handleChangeText} onChangeAuthor={handleChangeAuthor}/>
+      <Model>
+        <AddPost onChangeText={handleChangeText} onChangeAuthor={handleChangeAuthor}/>
+      </Model>
 
       <ul className="flex justify-center gap-4 flex-wrap mt-8">
         <Post author={author} text={text}/>
