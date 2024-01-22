@@ -20,6 +20,7 @@ export function AddPost({ onCancel, onAddPost }: AddPostProps) {
     const post = { text, author }
 
     addPostToServer(post)
+
     onAddPost(post)
 
     onCancel()
