@@ -4,8 +4,12 @@ import { Model } from '@/shared/components/ui/Model'
 import { Post } from '@/posts/Post'
 import { AddPost } from '@/posts/AddPost'
 
-export function PostList() {
-  const [open, setOpen] = React.useState(true)
+type PostListProps = {
+  openAddPostModel: boolean
+  onCloseAddPostModel: () => void
+}
+
+export function PostList({ openAddPostModel, onCloseAddPostModel }: PostListProps) {
   const [text, setText] = React.useState('')
   const [author, setAuthor] = React.useState('')
 
@@ -19,7 +23,7 @@ export function PostList() {
 
   return (
     <>
-      <Model open={open} setOpen={setOpen}>
+      <Model open={openAddPostModel} onCloseModel={onCloseAddPostModel}>
         <AddPost onChangeText={handleChangeText} onChangeAuthor={handleChangeAuthor}/>
       </Model>
 
