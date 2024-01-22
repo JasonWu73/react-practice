@@ -1,10 +1,16 @@
 import React from 'react'
 
-type AddPostProps = {
-  onCancel: () => void
+export type NewPost = {
+  text: string
+  author: string
 }
 
-export function AddPost({ onCancel }: AddPostProps) {
+type AddPostProps = {
+  onCancel: () => void
+  onAddPost: (post: NewPost) => void
+}
+
+export function AddPost({ onCancel, onAddPost }: AddPostProps) {
   const [text, setText] = React.useState('')
   const [author, setAuthor] = React.useState('')
 
@@ -16,7 +22,7 @@ export function AddPost({ onCancel }: AddPostProps) {
       author
     }
 
-    console.log(post)
+    onAddPost(post)
 
     onCancel()
   }
