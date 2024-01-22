@@ -35,9 +35,9 @@ export function PostList({ openAddPostModel, onCloseAddPostModel }: PostListProp
         ))}
 
         {posts.length === 0 && (
-          <div>
-            <h2>There are no posts yet.</h2>
-            <p>Start adding some!</p>
+          <div className="space-y-2 text-center">
+            <h2 className="text-2xl font-bold">There are no posts yet.</h2>
+            <p className="italic">Start adding some!</p>
           </div>
         )}
       </ul>

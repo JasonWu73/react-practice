@@ -17,14 +17,25 @@ export function AddPost({ onCancel, onAddPost }: AddPostProps) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const post = {
-      text,
-      author
-    }
+    const post = { text, author }
 
+    addPostToServer(post)
     onAddPost(post)
 
     onCancel()
+  }
+
+  function addPostToServer(post: NewPost) {
+    fetch('https://dummyjson.com/posts/add', {
+      method: 'POST',
+      body: JSON.stringify({
+        ...post,
+        userId: 1
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
   return (
