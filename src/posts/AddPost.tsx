@@ -1,19 +1,36 @@
+import React from 'react'
+
 type AddPostProps = {
-  onChangeText: (text: string) => void
-  onChangeAuthor: (author: string) => void
   onCancel: () => void
 }
 
-export function AddPost({ onChangeText, onChangeAuthor, onCancel }: AddPostProps) {
+export function AddPost({ onCancel }: AddPostProps) {
+  const [text, setText] = React.useState('')
+  const [author, setAuthor] = React.useState('')
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    const post = {
+      text,
+      author
+    }
+
+    console.log(post)
+
+    onCancel()
+  }
+
   return (
     <form
-      onSubmit={e => e.preventDefault()}
+      onSubmit={handleSubmit}
       className="space-y-4"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="text" className="w-24 font-semibold">Text</label>
         <textarea
-          onChange={e => onChangeText(e.target.value)}
+          onChange={e => setText(e.target.value)}
+          required
           id="text"
           rows={5}
           className="flex-grow px-2 py-1 bg-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-amber-500"
@@ -23,7 +40,8 @@ export function AddPost({ onChangeText, onChangeAuthor, onCancel }: AddPostProps
       <div className="flex flex-col gap-2">
         <label htmlFor="author" className="w-24 font-semibold">Your name</label>
         <input
-          onChange={e => onChangeAuthor(e.target.value)}
+          onChange={e => setAuthor(e.target.value)}
+          required
           type="text"
           id="author"
           className="flex-grow px-2 py-1 bg-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-amber-500"
