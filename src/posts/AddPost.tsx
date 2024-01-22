@@ -30,7 +30,7 @@ export function AddPost({ onCancel, onAddPost }: AddPostProps) {
       method: 'POST',
       body: JSON.stringify({
         ...post,
-        userId: 1
+        userId: Date.now()
       }),
       headers: {
         'Content-Type': 'application/json'
