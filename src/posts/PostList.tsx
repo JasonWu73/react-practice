@@ -12,6 +12,21 @@ type PostListProps = {
 export function PostList({ openAddPostModel, onCloseAddPostModel }: PostListProps) {
   const [posts, setPosts] = React.useState<NewPost[]>([])
 
+  React.useEffect(() => {
+    (async () => {
+      const response = await fetch('https://dummyjson.com/posts')
+      const data = await response.json()
+
+      const myNeededPost = data.posts.map((post: { body: string; title: string }) => {
+        return {
+          text: post.body,
+          author: post.title
+        }
+      })
+      setPosts(myNeededPost)
+    })()
+  }, [])
+
   function handleAddPost(post: NewPost) {
     setPosts(prev => [post, ...prev])
   }
