@@ -24,7 +24,11 @@ export function PostList({ openAddPostModel, onCloseAddPostModel }: PostListProp
   return (
     <>
       <Model open={openAddPostModel} onCloseModel={onCloseAddPostModel}>
-        <AddPost onChangeText={handleChangeText} onChangeAuthor={handleChangeAuthor}/>
+        <AddPost
+          onChangeText={handleChangeText}
+          onChangeAuthor={handleChangeAuthor}
+          onCancel={onCloseAddPostModel}
+        />
       </Model>
 
       <ul className="flex justify-center gap-4 flex-wrap mt-8">

@@ -9,7 +9,10 @@ export default function App() {
   return (
     <>
       <Header onAddPost={() => setOpenAddPostModel(true)}/>
-      <PostList openAddPostModel={openAddPostModel} onCloseAddPostModel={() => setOpenAddPostModel(false)} />
+      <PostList
+        openAddPostModel={openAddPostModel}
+        onCloseAddPostModel={() => setOpenAddPostModel(false)}
+      />
     </>
   )
 }
