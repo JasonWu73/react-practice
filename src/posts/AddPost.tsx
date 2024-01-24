@@ -36,7 +36,7 @@ export function AddPost({ onCancel, onAddPost }: AddPostProps) {
       headers: {
         'Content-Type': 'application/json'
       }
-    })
+    }).then()
   }
 
   return (
