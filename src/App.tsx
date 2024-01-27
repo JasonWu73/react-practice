@@ -1,7 +1,11 @@
-import { Navbar } from './components/layout/Navbar.tsx'
+import { Navbar } from '@/home/Navbar'
+import { Hero } from '@/home/Hero'
 
 export default function App() {
   return (
-    <Navbar/>
+    <>
+      <Navbar/>
+      <Hero/>
+    </>
   )
 }
