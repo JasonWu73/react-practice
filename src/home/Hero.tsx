@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section className="container flex flex-col-reverse mx-auto mb-4 p-4 md:flex-row">
       <div className="flex flex-col gap-4">
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-5xl font-bold">
           Bring everyone together to build better products
         </h1>
 
